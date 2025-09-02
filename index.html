@@ -72,14 +72,14 @@
 				<!-- Main -->
 					<div id="main">
 
-						<!-- One -->
+						<!-- About -->
 							<section id="about">
-								<!--<div class="image main" data-position="center">
+								<div class="image main" data-position="center">
 									<img src="images/banner.jpg" alt="Abstract banner" loading="lazy" decoding="async" />
-								</div>-->
+								</div>
 								<div class="container">
 									<header class="major">
-										<h2>About Me</h2>
+										<h2>Dominik Köhler</h2>
 										<p>Human‑centered engineering across AI, IoT, and Web3 — from idea to production.</p>
 									</header>
 									<p>I'm Dominik, a freelance software engineer based in Germany. I design and
@@ -93,11 +93,12 @@
 								</div>
 							</section>
 
-						<!-- Two -->
+						<!-- Expertise -->
 							<section id="expertise">
 								<div class="container">
 									<h3>Expertise</h3>
-									<p>Core areas where I bring the most impact:</p>
+									<br />
+									<!--<p>Core areas where I bring the most impact:</p>-->
 									<ul class="feature-icons">
 										<li class="icon solid fa-brain">Generative AI & LLM Development</li>
 										<li class="icon solid fa-bolt">IoT & Embedded Systems</li>
@@ -109,11 +110,12 @@
 								</div>
 							</section>
 
-						<!-- Three -->
+						<!-- Projects -->
 							<section id="projects">
 								<div class="container">
 									<h3>Projects</h3>
-									<p>Selected projects that show how I solve <strong>real</strong> problems:</p>
+									<br />
+									<!--<p>Selected projects that show how I solve <strong>real</strong> problems:</p>-->
 									<div class="features">
 										<article>
 											<a href="#" class="image"><img src="images/pulse-demo.png" alt="PULSE athlete performance app screenshot" loading="lazy" decoding="async" /></a>
@@ -140,12 +142,12 @@
 								</div>
 							</section>
 
-						<!-- Four -->
-							<section id="four">
+						<!-- Contact -->
+							<section id="contact">
 								<div class="container">
 									<h3>Contact Me</h3>
 									<p id="contact-intro">Interested in working together or have a question? Send a message and I’ll get back to you soon.</p>
-									<form method="post" action="#" aria-describedby="contact-intro">
+									<form method="post" action="#" aria-describedby="contact-intro" id="contact-form">
 										<div class="row gtr-uniform">
 											<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" autocomplete="name" aria-label="Name" required /></div>
 											<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" autocomplete="email" aria-label="Email" required /></div>
@@ -159,6 +161,40 @@
 											</div>
 										</div>
 									</form>
+									<div id="contact-status" role="status" aria-live="polite" style="margin-top:1rem;"></div>
+									<script>
+									(function(){
+										var form = document.getElementById('contact-form');
+										var status = document.getElementById('contact-status');
+										if (!form) return;
+										form.addEventListener('submit', function(e){
+											e.preventDefault();
+											status.textContent = 'Sending…';
+											var payload = {
+												name: document.getElementById('name').value.trim(),
+												email: document.getElementById('email').value.trim(),
+												subject: document.getElementById('subject').value.trim(),
+												message: document.getElementById('message').value.trim()
+											};
+											fetch('https://sage-lamington-b1615d.netlify.app/.netlify/functions/send-contact-email', {
+												method: 'POST',
+												headers: { 'Content-Type': 'application/json' },
+												body: JSON.stringify(payload)
+											}).then(function(res){
+												return res.json().catch(function(){ return { success:false, message:'Unexpected response' }; });
+											}).then(function(data){
+												if (data && data.success) {
+													status.textContent = 'Thanks! Your message was sent.';
+													form.reset();
+												} else {
+													status.textContent = (data && data.error) || (data && data.message) || 'Sorry, something went wrong.';
+												}
+											}).catch(function(){
+												status.textContent = 'Network error. Please try again.';
+											});
+										});
+									})();
+									</script>
 								</div>
 							</section>
 
