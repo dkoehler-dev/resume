@@ -1704,6 +1704,103 @@ input, select, textarea {
 
 		}
 
+/* Theme Switcher */
+
+[data-theme="dark"] {
+	color-scheme: dark;
+}
+
+/* Base colors */
+[data-theme="dark"] body,
+[data-theme="dark"] #wrapper {
+	background: #0d0d0d;
+}
+
+[data-theme="dark"] body, 
+[data-theme="dark"] input, 
+[data-theme="dark"] select, 
+[data-theme="dark"] textarea {
+	color: #cfcfcf;
+}
+
+[data-theme="dark"] strong, 
+[data-theme="dark"] b,
+[data-theme="dark"] h1, 
+[data-theme="dark"] h2, 
+[data-theme="dark"] h3, 
+[data-theme="dark"] h4, 
+[data-theme="dark"] h5, 
+[data-theme="dark"] h6 {
+	color: #e0e0e0;
+}
+
+/* Links */
+[data-theme="dark"] a {
+	border-bottom-color: #333;
+}
+
+/* Rules, borders, accents */
+[data-theme="dark"] hr {
+	border-bottom-color: #222;
+}
+
+[data-theme="dark"] blockquote {
+	border-left-color: #333;
+}
+
+[data-theme="dark"] code {
+	background: #222;
+	color: #fff;
+}
+
+[data-theme="dark"] .box,
+[data-theme="dark"] input[type="text"],
+[data-theme="dark"] input[type="password"],
+[data-theme="dark"] input[type="email"],
+[data-theme="dark"] select,
+[data-theme="dark"] textarea,
+[data-theme="dark"] table tbody tr,
+[data-theme="dark"] table thead,
+[data-theme="dark"] table tfoot {
+	border-color: #333;
+}
+
+[data-theme="dark"] table tbody tr:nth-child(2n + 1) {
+	background-color: #131313;
+}
+
+/* Header panel remains brand color; adjust active state for contrast */
+[data-theme="dark"] #header > nav ul li a.active {
+	background: #0f0f0f;
+	color: #4acaa8 !important;
+}
+
+/* Main sections */
+[data-theme="dark"] #main > section {
+	border-top-color: #1a1a1a;
+}
+
+/* Footer */
+[data-theme="dark"] #footer {
+	background: #0f0f0f;
+	color: #8a8a8a;
+}
+
+[data-theme="dark"] #footer .copyright li {
+	border-left-color: #333;
+}
+
+/* Theme UI */
+.theme-switcher {
+	margin-top: 1em;
+}
+
+.theme-switcher select {
+	width: 100%;
+	height: 2.25em;
+	font-size: 0.95em;
+}
+
 /* Container */
 
 	.container {
