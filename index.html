@@ -12,7 +12,7 @@
 		<meta name="author" content="Dominik Köhler" />
 		<link rel="canonical" href="https://dominikkoehler.dev/" />
 		<link rel="icon" href="images/avatar.jpg" type="image/jpeg" />
-		<meta name="theme-color" content="#0d0d0d" />
+		<meta name="theme-color" content="#121212" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://dominikkoehler.dev/" />
 		<meta property="og:title" content="Dominik Köhler — Freelance Software Developer (AI, IoT, eCommerce, Web3)" />
@@ -33,7 +33,7 @@
 				if (pref === 'dark') document.documentElement.setAttribute('data-theme','dark');
 				else if (pref === 'light') document.documentElement.setAttribute('data-theme','light');
 				else document.documentElement.removeAttribute('data-theme');
-				var effective = (pref === 'dark') || (pref !== 'light' && prefersDark) ? '#0d0d0d' : '#ffffff';
+				var effective = (pref === 'dark') || (pref !== 'light' && prefersDark) ? '#121212' : '#ffffff';
 				var meta = document.querySelector('meta[name="theme-color"]');
 				if (meta) meta.setAttribute('content', effective);
 			} catch (e) {}

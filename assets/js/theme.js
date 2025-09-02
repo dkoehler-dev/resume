@@ -31,7 +31,7 @@
 		}
 		var meta = document.querySelector('meta[name="theme-color"]');
 		if (meta) {
-			meta.setAttribute('content', effective === 'dark' ? '#0d0d0d' : '#ffffff');
+			meta.setAttribute('content', effective === 'dark' ? '#121212' : '#ffffff');
 		}
 	}
 

@@ -22,7 +22,7 @@
 @media (prefers-color-scheme: dark) {
   html:not([data-theme="light"]) body,
   html:not([data-theme="light"]) #wrapper {
-    background: #0d0d0d;
+    background: #121212;
   }
 
   html:not([data-theme="light"]) body,
@@ -69,7 +69,7 @@
   html:not([data-theme="light"]) select,
   html:not([data-theme="light"]) textarea {
     border-color: #2a2a2a;
-    background: #0f1115;
+    background: #181a1e;
     color: #c9d1d9;
   }
 
@@ -90,7 +90,7 @@
   }
 
   html:not([data-theme="light"]) #footer {
-    background: #0f1115;
+    background: #181a1e;
     color: #9aa4af;
   }
 
@@ -100,15 +100,15 @@
 
   /* Active nav background should not be white in dark mode */
   html:not([data-theme="light"]) #header > nav ul li a.active {
-    background: #0d0d0d;
-    color: #4acaa8 !important;
+    background: #121212;
+    color: #2aa982 !important;
   }
 }
 
 /* Forced dark theme overrides (mirrors the media query block) */
 html[data-theme="dark"] body,
 html[data-theme="dark"] #wrapper {
-  background: #0d0d0d;
+  background: #121212;
 }
 
 html[data-theme="dark"] body,
@@ -141,20 +141,20 @@ html[data-theme="dark"] input[type="email"],
 html[data-theme="dark"] select,
 html[data-theme="dark"] textarea {
   border-color: #2a2a2a;
-  background: #0f1115;
+  background: #181a1e;
   color: #c9d1d9;
 }
 
 html[data-theme="dark"] ::placeholder { color: #8b949e; }
 
 html[data-theme="dark"] table tbody tr { border-color: #222; }
-html[data-theme="dark"] table tbody tr:nth-child(2n + 1) { background-color: #0f1115; }
+html[data-theme="dark"] table tbody tr:nth-child(2n + 1) { background-color: #181a1e; }
 html[data-theme="dark"] #main > section { border-top-color: #1b1b1b; }
 
 html[data-theme="dark"] #footer {
-  background: #0f1115;
+  background: #181a1e;
   color: #9aa4af;
 }
 
 html[data-theme="dark"] #footer .copyright li { border-left-color: #2a2a2a; }
-html[data-theme="dark"] #header > nav ul li a.active { background: #0d0d0d; color: #4acaa8 !important; }
+html[data-theme="dark"] #header > nav ul li a.active { background: #121212; color: #2aa982 !important; }
