@@ -13,18 +13,6 @@
 		<link rel="canonical" href="https://dominikkoehler.dev/" />
 		<link rel="icon" href="images/avatar.jpg" type="image/jpeg" />
 		<meta name="theme-color" content="#0d0d0d" />
-		<script>
-		(function(){
-			try {
-				var storageKey = 'theme-preference';
-				var saved = localStorage.getItem(storageKey);
-				var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-				var initial = saved || (prefersDark ? 'dark' : 'light');
-				if (initial === 'system') initial = prefersDark ? 'dark' : 'light';
-				document.documentElement.setAttribute('data-theme', initial);
-			} catch(e) {}
-		})();
-		</script>
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://dominikkoehler.dev/" />
 		<meta property="og:title" content="Dominik Köhler — Freelance Software Developer (AI, IoT, eCommerce, Web3)" />
@@ -35,6 +23,22 @@
 		<meta name="twitter:description" content="AI, IoT, eCommerce, and Web3 solutions that solve real problems." />
 		<meta name="twitter:image" content="https://dominikkoehler.dev/images/avatar.jpg" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/theme.css" />
+		<script>
+		// Prevent theme flash on first paint
+		(function(){
+			try {
+				var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+				var pref = localStorage.getItem('theme-preference');
+				if (pref === 'dark') document.documentElement.setAttribute('data-theme','dark');
+				else if (pref === 'light') document.documentElement.setAttribute('data-theme','light');
+				else document.documentElement.removeAttribute('data-theme');
+				var effective = (pref === 'dark') || (pref !== 'light' && prefersDark) ? '#0d0d0d' : '#ffffff';
+				var meta = document.querySelector('meta[name="theme-color"]');
+				if (meta) meta.setAttribute('content', effective);
+			} catch (e) {}
+		})();
+		</script>
 		<script type="application/ld+json">
 		{
 			"@context": "https://schema.org",
@@ -69,15 +73,10 @@
 					</ul>
 				</nav>
 				<footer>
-					<div class="theme-switcher">
-						<label for="theme-select">Theme</label>
-						<select id="theme-select" aria-label="Theme">
-							<option value="system">System</option>
-							<option value="light">Light</option>
-							<option value="dark">Dark</option>
-						</select>
-					</div>
 					<ul class="icons">
+						<li>
+							<button id="theme-toggle" class="icon solid fa-adjust" title="Switch theme (Current: System)" aria-label="Switch theme (Current: System)" type="button"></button>
+						</li>
 						<li><a href="https://github.com/dkoehler-dev" class="icon brands fa-github" aria-label="GitHub" title="GitHub" target="_blank" rel="noopener noreferrer"><span class="label">Github</span></a></li>
 						<li><a href="https://www.linkedin.com/in/dominikkoehlerdev" class="icon brands fa-linkedin-in" aria-label="LinkedIn" title="LinkedIn" target="_blank" rel="noopener noreferrer"><span class="label">LinkedIn</span></a></li>
 						<li><a href="https://x.com/dkoehlerdev" class="icon brands fa-twitter" aria-label="X (Twitter)" title="X (Twitter)" target="_blank" rel="noopener noreferrer"><span class="label">X (Twitter)</span></a></li>
@@ -239,38 +238,7 @@
 			<script src="assets/js/breakpoints.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
-			<script>
-			(function(){
-				var storageKey = 'theme-preference';
-				var select = document.getElementById('theme-select');
-				if (!select) return;
-				var mm = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)');
-				var metaTheme = document.querySelector('meta[name="theme-color"]');
-				function currentSystem() { return mm && mm.matches ? 'dark' : 'light'; }
-				function apply(theme) {
-					var effective = theme === 'system' ? currentSystem() : theme;
-					document.documentElement.setAttribute('data-theme', effective);
-					if (metaTheme) metaTheme.setAttribute('content', effective === 'dark' ? '#0d0d0d' : '#ffffff');
-				}
-				function initSelect() {
-					var saved = localStorage.getItem(storageKey) || 'system';
-					select.value = saved;
-					apply(saved);
-				}
-				initSelect();
-				select.addEventListener('change', function(){
-					var value = select.value;
-					localStorage.setItem(storageKey, value);
-					apply(value);
-				});
-				if (mm && typeof mm.addEventListener === 'function') {
-					mm.addEventListener('change', function(){
-						var saved = localStorage.getItem(storageKey) || 'system';
-						if (saved === 'system') apply('system');
-					});
-				}
-			})();
-			</script>
+			<script src="assets/js/theme.js"></script>
 
 	</body>
 </html>

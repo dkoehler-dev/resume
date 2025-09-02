@@ -1,0 +1,160 @@
+/* Theme overrides: light/dark/system with no-FOUC handling */
+/* Loaded after main.css to override selective colors without rewriting template */
+
+:root {
+  color-scheme: light dark;
+}
+
+/* Utility: reset button visuals for icon button */
+#theme-toggle {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+}
+
+/* Dark theme rules apply when:
+   - html[data-theme="dark"] is set (user-forced)
+   - or system prefers dark and user hasn't forced light
+*/
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme="light"]) body,
+  html:not([data-theme="light"]) #wrapper {
+    background: #0d0d0d;
+  }
+
+  html:not([data-theme="light"]) body,
+  html:not([data-theme="light"]) input,
+  html:not([data-theme="light"]) select,
+  html:not([data-theme="light"]) textarea {
+    color: #c9d1d9;
+  }
+
+  html:not([data-theme="light"]) strong,
+  html:not([data-theme="light"]) b,
+  html:not([data-theme="light"]) h1,
+  html:not([data-theme="light"]) h2,
+  html:not([data-theme="light"]) h3,
+  html:not([data-theme="light"]) h4,
+  html:not([data-theme="light"]) h5,
+  html:not([data-theme="light"]) h6 {
+    color: #e6edf3;
+  }
+
+  html:not([data-theme="light"]) header p {
+    color: #9aa4af;
+  }
+
+  html:not([data-theme="light"]) a {
+    border-bottom-color: #2a2a2a;
+  }
+
+  html:not([data-theme="light"]) hr {
+    border-bottom-color: #1e1e1e;
+  }
+
+  html:not([data-theme="light"]) blockquote {
+    border-left-color: #2a2a2a;
+  }
+
+  html:not([data-theme="light"]) .box {
+    border-color: #2a2a2a;
+  }
+
+  html:not([data-theme="light"]) input[type="text"],
+  html:not([data-theme="light"]) input[type="password"],
+  html:not([data-theme="light"]) input[type="email"],
+  html:not([data-theme="light"]) select,
+  html:not([data-theme="light"]) textarea {
+    border-color: #2a2a2a;
+    background: #0f1115;
+    color: #c9d1d9;
+  }
+
+  html:not([data-theme="light"]) ::placeholder {
+    color: #8b949e;
+  }
+
+  html:not([data-theme="light"]) table tbody tr {
+    border-color: #222;
+  }
+
+  html:not([data-theme="light"]) table tbody tr:nth-child(2n + 1) {
+    background-color: #0f1115;
+  }
+
+  html:not([data-theme="light"]) #main > section {
+    border-top-color: #1b1b1b;
+  }
+
+  html:not([data-theme="light"]) #footer {
+    background: #0f1115;
+    color: #9aa4af;
+  }
+
+  html:not([data-theme="light"]) #footer .copyright li {
+    border-left-color: #2a2a2a;
+  }
+
+  /* Active nav background should not be white in dark mode */
+  html:not([data-theme="light"]) #header > nav ul li a.active {
+    background: #0d0d0d;
+    color: #4acaa8 !important;
+  }
+}
+
+/* Forced dark theme overrides (mirrors the media query block) */
+html[data-theme="dark"] body,
+html[data-theme="dark"] #wrapper {
+  background: #0d0d0d;
+}
+
+html[data-theme="dark"] body,
+html[data-theme="dark"] input,
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  color: #c9d1d9;
+}
+
+html[data-theme="dark"] strong,
+html[data-theme="dark"] b,
+html[data-theme="dark"] h1,
+html[data-theme="dark"] h2,
+html[data-theme="dark"] h3,
+html[data-theme="dark"] h4,
+html[data-theme="dark"] h5,
+html[data-theme="dark"] h6 {
+  color: #e6edf3;
+}
+
+html[data-theme="dark"] header p { color: #9aa4af; }
+html[data-theme="dark"] a { border-bottom-color: #2a2a2a; }
+html[data-theme="dark"] hr { border-bottom-color: #1e1e1e; }
+html[data-theme="dark"] blockquote { border-left-color: #2a2a2a; }
+html[data-theme="dark"] .box { border-color: #2a2a2a; }
+
+html[data-theme="dark"] input[type="text"],
+html[data-theme="dark"] input[type="password"],
+html[data-theme="dark"] input[type="email"],
+html[data-theme="dark"] select,
+html[data-theme="dark"] textarea {
+  border-color: #2a2a2a;
+  background: #0f1115;
+  color: #c9d1d9;
+}
+
+html[data-theme="dark"] ::placeholder { color: #8b949e; }
+
+html[data-theme="dark"] table tbody tr { border-color: #222; }
+html[data-theme="dark"] table tbody tr:nth-child(2n + 1) { background-color: #0f1115; }
+html[data-theme="dark"] #main > section { border-top-color: #1b1b1b; }
+
+html[data-theme="dark"] #footer {
+  background: #0f1115;
+  color: #9aa4af;
+}
+
+html[data-theme="dark"] #footer .copyright li { border-left-color: #2a2a2a; }
+html[data-theme="dark"] #header > nav ul li a.active { background: #0d0d0d; color: #4acaa8 !important; }
