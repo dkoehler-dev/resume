@@ -1786,12 +1786,12 @@ input, select, textarea {
 
 	header.major h2 {
 		color: #4acaa8;
-		font-size: 3.5em;
+		font-size: 3em;
 	}
 
 		header.major h2 + p {
 			color: #777;
-			font-size: 1.75em;
+			font-size: 1.5em;
 			font-weight: 700;
 			margin-top: -0.75em;
 		}
@@ -2200,7 +2200,7 @@ input, select, textarea {
 
 		.image.main {
 			display: block;
-			height: 20em;
+			height: 10em;
 			border-radius: 0;
 		}
 
@@ -2829,7 +2829,7 @@ input, select, textarea {
 	}
 
 		#main > section > .container {
-			padding: 6em 0 4em 0;
+			padding: 3em 0 4em 0;
 		}
 
 		#main > section:first-child {
@@ -2903,7 +2903,7 @@ input, select, textarea {
 		/* Main */
 
 			#main > section > .container {
-				padding: 4em 0 2em 0;
+				padding: 2em 0 2em 0;
 			}
 
 	}
@@ -2961,7 +2961,7 @@ input, select, textarea {
 				}
 
 			.image.main {
-				height: 20em;
+				height: 10em;
 			}
 
 		/* Header */
@@ -3143,7 +3143,7 @@ input, select, textarea {
 			}
 
 			.image.main {
-				height: 12em;
+				height: 5em;
 			}
 
 		/* Section/Article */
@@ -3209,7 +3209,7 @@ input, select, textarea {
 		/* Main */
 
 			#main > section > .container {
-				padding: 2em 0 0 0;
+				padding: 1em 0 0 0;
 			}
 
 		/* Footer */
