@@ -2712,7 +2712,7 @@ input, select, textarea {
 		position: fixed;
 		text-align: center;
 		top: 0;
-		width: 23.5em;
+		width: 20em;
 		right: 0;
 	}
 
@@ -2826,7 +2826,7 @@ input, select, textarea {
 
 	#wrapper {
 		background: #fff;
-		padding-right: 23em;
+		padding-right: 26em;
 	}
 
 /* Main */
