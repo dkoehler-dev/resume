@@ -5,6 +5,23 @@
   color-scheme: light dark;
 }
 
+/* Force UA form control rendering to match chosen theme */
+html[data-theme="light"] { color-scheme: light; }
+html[data-theme="dark"] { color-scheme: dark; }
+
+/* Ensure light theme inputs are white, not gray */
+html[data-theme="light"] input[type="text"],
+html[data-theme="light"] input[type="password"],
+html[data-theme="light"] input[type="email"],
+html[data-theme="light"] select,
+html[data-theme="light"] textarea {
+  border-color: #e4e4e4;
+  background: #ffffff;
+  color: #888;
+}
+
+html[data-theme="light"] ::placeholder { color: #aaa; }
+
 /* Utility: reset button visuals for icon button */
 #theme-toggle {
   background: transparent;
